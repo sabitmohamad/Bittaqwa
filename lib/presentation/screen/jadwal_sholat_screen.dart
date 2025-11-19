@@ -20,9 +20,13 @@ class _JadwalSholatScreenState extends State<JadwalSholatScreen> {
   String? _locationName;
   bool _isLoading = true;
 
-  Future<List<dynamic>> fetchJadwalSholat(String city, String month, String year) async {
+  Future<List<dynamic>> fetchJadwalSholat(
+    String city,
+    String month,
+    String year,
+  ) async {
     final url =
-        'https://api.aladhan.com/v1/calendarByCity?city=$city&country=Indonesia&method=11&month=$month&year=$year';
+        'https://raw.githubusercontent.com/lakuapik/jadwalsholatorg/master/adzan/$city/$year/$month.json';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
@@ -111,7 +115,7 @@ class _JadwalSholatScreenState extends State<JadwalSholatScreen> {
                       Align(
                         alignment: Alignment.topCenter,
                         child: Text(
-                          DateFormat('EEEE, d MMMM', 'id_ID').format(DateTime.now()),
+                          DateFormat('EEEE, d MMMM yyyy', 'id_ID').format(DateTime.now()),
                           style: TextStyle(
                             fontSize: 24,
                             fontFamily: "PoppinsSemiBold",

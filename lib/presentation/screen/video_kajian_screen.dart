@@ -15,13 +15,14 @@ class VideoKajianScreen extends StatelessWidget {
           'Video Kajian',
           style: TextStyle(
             color: ColorConstant.white,
-            fontFamily: "PoppinsMedium",
+            fontSize: 16,
+            fontFamily: 'PoppinsMedium',
           ),
         ),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new_outlined,
-            color: ColorConstant.white,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -42,72 +43,77 @@ class VideoKajianScreen extends StatelessWidget {
                     ustadz: videos[index]['ustadz']!,
                     title: videos[index]['title']!,
                     description: videos[index]['description']!,
-                    thumbnail: videos[index]['thumnail']!,
                   ),
                 ),
               );
             },
-            child: Card(
-              margin: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Stack(
-                    children: [
-                      AspectRatio(
-                        aspectRatio: 16 / 9,
-                        child: Image.asset(
-                          videos[index]['thumbnail']!,
-                          fit: BoxFit.cover,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        AspectRatio(
+                          aspectRatio: 16 / 9,
+                          child: Image.asset(
+                            videos[index]['thumbnail']!,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          top: 0,
+                          left: 0,
+                          child: Icon(
+                            Icons.play_circle_outline,
+                            color: ColorConstant.primary,
+                            size: 60,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        videos[index]['account']!,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: 'PoppinsRegular',
                         ),
                       ),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        top: 0,
-                        left: 0,
-                        child: Icon(
-                          Icons.play_circle_outline,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        videos[index]['ustadz']!,
+                        style: TextStyle(
+                          fontSize: 16,
                           color: ColorConstant.primary,
-                          size: 60,
+                          fontFamily: 'PoppinsMedium',
                         ),
                       ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      videos[index]['account']!,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                        fontFamily: 'PoppinsRegular',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        videos[index]['title']!,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontFamily: 'PoppinsSemiBold',
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      videos[index]['ustadz']!,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: ColorConstant.primary,
-                        fontFamily: 'PoppinsMedium',
-                      ),
+                    SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      videos[index]['title']!,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.black,
-                        fontFamily: 'PoppinsSemiBold',
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
