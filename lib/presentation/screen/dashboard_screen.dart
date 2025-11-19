@@ -239,7 +239,11 @@ class DashboardScreen extends StatelessWidget {
 
     return Scaffold(
       body: ListView(
-        children: [header(), cardMenus(), cardInspiration()],
+        children: [
+          header(),
+          cardMenus(),
+          cardInspiration(),
+        ],
       ),
     );
   }

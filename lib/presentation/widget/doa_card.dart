@@ -5,7 +5,12 @@ class DoaCard extends StatelessWidget {
   final String title;
   final Function onTap;
 
-  const DoaCard({required this.image, required this.title, required this.onTap, super.key});
+  const DoaCard({
+    required this.image,
+    required this.title,
+    required this.onTap,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +45,7 @@ class DoaCard extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'PoppinsMedium'
-                ),
+                style: TextStyle(fontFamily: 'PoppinsMedium'),
               ),
             ],
           ),

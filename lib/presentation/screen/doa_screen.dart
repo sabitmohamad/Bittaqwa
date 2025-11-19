@@ -40,7 +40,7 @@ class DoaScreen extends StatelessWidget {
               padding: EdgeInsets.all(8),
               child: GridView.count(
                 crossAxisCount: 3,
-                mainAxisSpacing: 24,
+                mainAxisSpacing: 12,
                 crossAxisSpacing: 12,
                 children: [
                   DoaCard(
